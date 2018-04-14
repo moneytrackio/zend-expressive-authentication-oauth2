@@ -21,7 +21,7 @@ class ClientEntity implements ClientEntityInterface
     use ClientTrait, EntityTrait, RevokableTrait, TimestampableTrait;
 
     /**
-     * @var string
+     * @var string|null
      */
     protected $secret;
 
@@ -55,12 +55,12 @@ class ClientEntity implements ClientEntityInterface
         $this->redirectUri = explode(',', $redirectUri);
     }
 
-    public function getSecret(): string
+    public function getSecret(): ?string
     {
         return $this->secret;
     }
 
-    public function setSecret(string $secret): void
+    public function setSecret(?string $secret): void
     {
         $this->secret = $secret;
     }
