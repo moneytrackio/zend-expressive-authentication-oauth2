@@ -52,7 +52,8 @@ class ClientEntity implements ClientEntityInterface
     {
         $this->setIdentifier($identifier);
         $this->name = $name;
-        $this->redirectUri = explode(',', $redirectUri);
+        $uris = explode(',', $redirectUri);
+        $this->redirectUri = count($uris) == 1 ? $redirectUri : $uris;
     }
 
     public function getSecret(): ?string
