@@ -23,8 +23,8 @@ class GenerateKeys extends AbstractConsole
             exit(1);
         }
 
-        $keysPath = trim($route->getMatchedParam('path'), '/');
-        $destPath = realpath(getcwd()) . DIRECTORY_SEPARATOR . ltrim($route->getMatchedParam('dest-path'), '/');
+        $keysPath = trim($route->getMatchedParam('keys-path'), '/');
+        $configPath = realpath(getcwd()) . DIRECTORY_SEPARATOR . ltrim($route->getMatchedParam('config-path'), '/');
 
         // see if there's a data dir of the parent application
         if (file_exists($keysPath)) {
@@ -80,7 +80,7 @@ class GenerateKeys extends AbstractConsole
         file_put_contents($params['encryptionKey'], sprintf("<?php return '%s';", $encKey));
         $this->displayMessage($console, "Encryption key stored in:", $params['encryptionKey']);
 
-        file_put_contents(sprintf('%s/oauth2.php', $destPath), $oauth2Config);
+        file_put_contents(sprintf('%s/oauth2.php', $configPath), $oauth2Config);
 
         return 0;
     }

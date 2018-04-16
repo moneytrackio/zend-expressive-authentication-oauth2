@@ -17,6 +17,23 @@ class DoctrineAdapter extends AbstractConsole
 {
     public function __invoke(Route $route, Console $console): int
     {
+        $userClass = $route->getMatchedParam('userClass');
+        $userField = $route->getMatchedParam('userField');
+        $configPath = realpath(getcwd()) . DIRECTORY_SEPARATOR . ltrim($route->getMatchedParam('config-path'), '/');
+
+        $configPathTemplate = realpath(__DIR__ . '/../../config/oauth2-doctrine.php.dist');
+        $oauth2DoctrineConfig = file_get_contents($configPathTemplate);
+
+        $params = compact('userClass', 'userField');
+
+        foreach ($params as $index => $param) {
+            $value = $params[$index];
+            $pattern = strtoupper($this->camelCaseToUnderscore($index));
+            $oauth2DoctrineConfig = str_replace($pattern, $value, $oauth2DoctrineConfig);
+        }
+
+        file_put_contents(sprintf('%s/oauth2-doctrine.php', $configPath), $oauth2DoctrineConfig);
+
         return 0;
     }
 }
