@@ -2,7 +2,7 @@
 return [
     'authentication' => [
         'doctrine' => [
-            'user_class' => 'USER_CLASS',
+            'user_class' => USER_CLASS,
             'user_field' => 'USER_FIELD',
         ],
     ],
