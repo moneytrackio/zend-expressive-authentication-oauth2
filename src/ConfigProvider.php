@@ -51,6 +51,11 @@ class ConfigProvider
     public function getDependencies() : array
     {
         return [
+            'invokables' => [
+                Console\GenerateKeys::class => Console\GenerateKeys::class,
+                Console\PdoAdapter::class => Console\PdoAdapter::class,
+                Console\DoctrineAdapter::class => Console\DoctrineAdapter::class,
+            ],
             'aliases' => [
                 // Choose a different adapter changing the alias value
                 AccessTokenRepositoryInterface::class => Pdo\AccessTokenRepository::class,
@@ -81,18 +86,6 @@ class ConfigProvider
                 ImplicitGrant::class => ImplicitGrantFactory::class,
                 RefreshTokenGrant::class => RefreshTokenGrantFactory::class,
             ]
-        ];
-    }
-
-    public function getRoutes() : array
-    {
-        return [
-            [
-                'name'            => 'oauth',
-                'path'            => '/oauth',
-                'middleware'      => OAuth2Middleware::class,
-                'allowed_methods' => ['GET', 'POST']
-            ],
         ];
     }
 }
