@@ -68,16 +68,19 @@ class GenerateKeys extends AbstractConsole
         $res = openssl_pkey_new($config);
         openssl_pkey_export($res, $privateKey);
         file_put_contents($params['privateKey'], $privateKey);
+        chmod($params['privateKey'], 600);
         $this->displayMessage($console, "Private key stored in:", $params['privateKey']);
 
         // Public key
         $publicKey = openssl_pkey_get_details($res);
         file_put_contents($params['publicKey'], $publicKey["key"]);
+        chmod($params['publicKey'], 600);
         $this->displayMessage($console, "Public key stored in:", $params['publicKey']);
 
         // Encryption key
         $encKey = base64_encode(random_bytes(32));
         file_put_contents($params['encryptionKey'], sprintf("<?php return '%s';", $encKey));
+        chmod($params['encryptionKey'], 600);
         $this->displayMessage($console, "Encryption key stored in:", $params['encryptionKey']);
 
         file_put_contents(sprintf('%s/oauth2.php', $configPath), $oauth2Config);
