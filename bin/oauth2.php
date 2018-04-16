@@ -15,7 +15,7 @@ $container = require 'config/container.php';
 $routes = [
     [
         'name' => 'generate-keys',
-        'route' => '[--path=] [--dest-path=] [--accessTokenExpiry=] [--refreshTokenExpiry=] [--authCodeExpiry=]',
+        'route' => '[--keys-path=] [--config-path=] [--accessTokenExpiry=] [--refreshTokenExpiry=] [--authCodeExpiry=]',
         'description' => 'Generate public, private and encryption keys for thephpleague/oauth2-server.',
         'short_description' => 'Generate keys.',
         'options_descriptions' => [
