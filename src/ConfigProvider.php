@@ -40,8 +40,6 @@ class ConfigProvider
     {
         return [
             'dependencies'   => $this->getDependencies(),
-            'authentication' => include __DIR__ . '/../config/oauth2.php',
-            'routes'         => $this->getRoutes()
         ];
     }
 
