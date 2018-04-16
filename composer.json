@@ -59,7 +59,7 @@
     "bin": [
         "bin/oauth2",
         "bin/oauth2.php"
-    ]
+    ],
     "scripts": {
         "check": [
             "@cs-check",
