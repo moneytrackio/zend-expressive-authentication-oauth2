@@ -68,6 +68,7 @@ class ConfigProvider
                 AuthorizationMiddleware::class => AuthorizationMiddlewareFactory::class,
                 AuthorizationHandler::class => AuthorizationHandlerFactory::class,
                 TokenEndpointHandler::class => TokenEndpointHandlerFactory::class,
+                TokenRevokeHandler::class => TokenRevokeHandlerFactory::class,
                 OAuth2Adapter::class => OAuth2AdapterFactory::class,
                 AuthorizationServer::class => AuthorizationServerFactory::class,
                 ResourceServer::class => ResourceServerFactory::class,
