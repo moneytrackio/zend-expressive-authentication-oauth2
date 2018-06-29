@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "111096c4b6155a043fce7f26e8713e5a",
+    "content-hash": "5f5fccaf615b2f4926a7d1d928d78c88",
     "packages": [
         {
             "name": "defuse/php-encryption",
@@ -2471,14 +2471,7 @@
             "time": "2018-06-27T18:52:43+00:00"
         }
     ],
-    "aliases": [
-        {
-            "alias": "7.2",
-            "alias_normalized": "7.2.0.0",
-            "version": "dev-feature/oauth-rfc-7009",
-            "package": "league/oauth2-server"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
         "league/oauth2-server": 20,
