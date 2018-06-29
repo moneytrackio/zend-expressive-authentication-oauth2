@@ -18,6 +18,26 @@ class UserEntity implements UserEntityInterface
     use EntityTrait;
 
     /**
+     * @var string|null
+     */
+    protected $username;
+
+    /**
+     * @var string|null
+     */
+    protected $password;
+
+    /**
+     * @var string|null
+     */
+    protected $firstName;
+
+    /**
+     * @var string|null
+     */
+    protected $lastName;
+
+    /**
      * Create a new user instance.
      *
      * @param  string|int  $identifier
@@ -27,4 +47,45 @@ class UserEntity implements UserEntityInterface
     {
         $this->setIdentifier($identifier);
     }
+
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(string $username): void
+    {
+        $this->username = $username;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): void
+    {
+        $this->password = $password;
+    }
+
+    public function getFirstName(): ?string
+    {
+        return $this->firstName;
+    }
+
+    public function setFirstName(?string $firstName): void
+    {
+        $this->firstName = $firstName;
+    }
+
+    public function getLastName(): ?string
+    {
+        return $this->lastName;
+    }
+
+    public function setLastName(?string $lastName): void
+    {
+        $this->lastName = $lastName;
+    }
+
 }
